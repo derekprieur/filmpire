@@ -39,14 +39,14 @@ const MovieInformation = () => {
         console.log(localStorage.getItem('session_id'))
         console.log(id)
         console.log(isMovieFavorited)
-        await axios.post(`http://api.themoviedb.org/3/account/${user.id}/favorite?api_key=${process.env.REACT_APP_TMDB_KEY}&session_id=${localStorage.getItem('session_id')}`, { media_type: 'movie', media_id: id, favorite: !isMovieFavorited, })
+        await axios.post(`https://api.themoviedb.org/3/account/${user.id}/favorite?api_key=${process.env.REACT_APP_TMDB_KEY}&session_id=${localStorage.getItem('session_id')}`, { media_type: 'movie', media_id: id, favorite: !isMovieFavorited, })
         console.log('finish')
         setIsMovieFavorited(prev => !prev)
     }
 
     const addToWatchlist = async () => {
         console.log('addToWatchlist')
-        await axios.post(`http://api.themoviedb.org/3/account/${user.id}/watchlist?api_key=${process.env.REACT_APP_TMDB_KEY}&session_id=${localStorage.getItem('session_id')}`, { media_type: 'movie', media_id: id, watchlist: !isMovieWatchlisted, })
+        await axios.post(`https://api.themoviedb.org/3/account/${user.id}/watchlist?api_key=${process.env.REACT_APP_TMDB_KEY}&session_id=${localStorage.getItem('session_id')}`, { media_type: 'movie', media_id: id, watchlist: !isMovieWatchlisted, })
         setIsMovieWatchlisted(prev => !prev)
     }
 
